@@ -1,11 +1,9 @@
-import React from 'react';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import React from "react";
 
-const CartWidget = ({ cartCount }) => {
+const CartWidget = ({ cantidad }) => {
   return (
     <div className="cart-widget">
-      <i className="fas fa-shopping-cart"></i> {/* Ícono de carrito */}
-      {cartCount > 0 && <span className="cart-count">{cartCount}</span>} {/* Contador */}
+      <span>Carrito ({cantidad})</span> {/* Muestra la cantidad de productos */}
     </div>
   );
 };

@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import './app.css';import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductListContainer from './components/ItemListContainer/ItemListContainer';
+import ContactPage from './components/screens/Contacto'; // Página de contacto
+import HomePage from './components/screens/Home'; // Página de inicio
+
 function App() {
-  const [cartCount, setCartCount] = useState(0);
-
-  const addToCart = () => {
-    setCartCount(cartCount + 1);
-  };
-
   return (
-    <div>
-      <NavBar cartCount={cartCount} />
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <button onClick={addToCart}>Añadir al carrito</button>
-      </div>
-      <div>
-      <ItemListContainer mensaje="Proximamente tienda de pasteleria"/>
-      </div>
-    </div>
+    <Router>
+      <NavBar /> {/* Componente del Navbar */}
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} /> {/* Página de inicio */}
+          <Route path="/productos" element={<ProductListContainer />} /> {/* Página de productos */}
+          <Route path="/contacto" element={<ContactPage />} /> {/* Página de contacto */}
+          <Route path="*" element={<h1>Página no encontrada</h1>} /> {/* Error para páginas no encontradas */}
+        </Routes>
+      </main>
+    </Router>
   );
 }
 

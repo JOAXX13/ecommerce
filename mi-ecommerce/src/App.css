@@ -1,107 +1,131 @@
-/* Layout general */
+html, body {
+  background-color: #121212; /* Gris oscuro para el fondo */
+  color: #ffffff; /* Blanco puro para el texto */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no sobresalga */
 }
 
-
-/* NavBar styles */
+/* Estilos para la Barra de Navegación */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background-color: #1a1a1a; /* Fondo oscuro para el navbar */
-  color: #ffffff;
-}
-
-.navbar-logo img {
-  height: 6em; /* Tamaño del logo */
-  transition: filter 300ms;
-}
-
-.navbar-logo img:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  position: relative;
+  background-color: #222; /* Fondo oscuro para el navbar */
+  padding: 15px 20px;
+  width: 100%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  padding: 0;
   margin: 0;
 }
 
-.nav-list li a {
+.nav-list > li {
+  margin-right: 20px;
+  position: relative;
+}
+
+.nav-list > li > a {
   text-decoration: none;
-  color: #646cff;
-  font-weight: 500;
-  transition: color 0.3s;
+  color: #f0c040; /* Color dorado para los enlaces */
+  font-weight: bold;
+  transition: color 0.3s ease; /* Transición suave al pasar el cursor */
 }
 
-.nav-list li a:hover {
-  color: #535bf2;
+.nav-list > li > a:hover {
+  color: #ffffff; /* Blanco puro cuando se pasa el cursor */
 }
 
-.navbar-cart {
-  font-size: 1.5em;
-  color: #ffffff;
-}
-
-/* Otros estilos globales */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #ffffff; /* Color de fondo normal (blanco) */
-  color: #1a73e8; /* Color del texto (azul) */
-  border: none;
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333; /* Fondo oscuro del dropdown */
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  z-index: 10;
 }
 
-button:hover {
-  background-color: #1a73e8; /* Azul al pasar el mouse */
-  color: #fff; /* Texto blanco al pasar el mouse */
+.dropdown:hover .dropdown-menu {
+  display: block; /* Muestra el menú al pasar el cursor */
 }
 
-button:active {
-  background-color: #0f5bb5; /* Color al presionar (más oscuro) */
-  color: #fff; /* Texto blanco */
+.dropdown-menu li {
+  margin: 5px 0;
 }
 
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #f0c040; /* Color dorado para los enlaces del dropdown */
+  transition: color 0.3s ease;
+}
 
+.dropdown-menu li a:hover {
+  color: #ffffff; /* Blanco puro al pasar el cursor */
+}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Estilo para el Logo */
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+/* Estilo para el widget de carrito */
+.cart-widget {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #f0c040; /* Fondo dorado para el carrito */
+  padding: 10px;
+  border-radius: 50px; /* Borde redondeado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+  transition: transform 0.3s ease; /* Transición al hacer hover */
+}
+
+.cart-widget:hover {
+  transform: scale(1.1); /* Escala un poco el carrito al pasar el cursor */
+}
+
+.cart-widget img {
+  width: 32px;
+  height: auto;
+}
+
+.cart-widget span {
+  font-size: 16px;
+  margin-left: 10px;
+  color: #121212; /* Contraste con el fondo dorado */
 }
